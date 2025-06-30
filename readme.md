@@ -22,6 +22,38 @@ O código realiza os seguintes passos principais:
 
 ---
 
+## Mudanças Implementadas
+
+### Versão Original vs Versão Atual
+
+**Principais melhorias implementadas:**
+
+1. **Segmentação por Cor HSV**: 
+   - **Antes**: Usava apenas binarização com Otsu em escala de cinza
+   - **Agora**: Implementa segmentação por cor HSV para remover fundo branco automaticamente
+
+2. **Pré-processamento Aprimorado**:
+   - **Antes**: Apenas operação morfológica de abertura
+   - **Agora**: Suavização com GaussianBlur + abertura + fechamento morfológico
+
+3. **Filtragem Inteligente**:
+   - **Antes**: Filtro simples por área mínima (100 pixels)
+   - **Agora**: Filtro por intervalo de área (300 < área < 20% da imagem) para evitar objetos muito pequenos ou muito grandes
+
+4. **Interface Visual Melhorada**:
+   - **Antes**: Apenas impressão no console
+   - **Agora**: Texto sobreposto na imagem com contagem, retângulo de fundo e formatação profissional
+
+5. **Organização de Arquivos**:
+   - **Antes**: Salvava máscara em `images/mask.png`
+   - **Agora**: Salva resultados em pasta `output/` separada
+
+6. **Robustez**:
+   - **Antes**: Funcionava apenas com imagens de alto contraste
+   - **Agora**: Mais robusto para diferentes tipos de fundo e iluminação
+
+---
+
 ## Objetivos
 - Entender o fluxo básico de segmentação e análise de imagens.
 - Praticar técnicas de pré-processamento como binarização e operações morfológicas.
